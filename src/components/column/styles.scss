@@ -1,0 +1,33 @@
+.column {
+  width: calc(33.33% - 20px);
+  padding: 20px;
+  border: 5px dashed;
+  border-radius: 10px;
+
+  &.available {
+    border-color: red;
+
+    .task {
+      background-color: rgba(red, .2);
+      border-color: red;
+    }
+  }
+  
+  &.in-progress {
+    border-color: green;
+
+    .task {
+      background-color: rgba(green, .2);
+      border-color: green;
+    }
+  }
+  
+  &.done {
+    border-color: blue;
+
+    .task {
+      background-color: rgba(blue, .2);
+      border-color: blue;
+    }
+  }
+}

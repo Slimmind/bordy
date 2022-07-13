@@ -1,0 +1,10 @@
+.task {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
