@@ -1,0 +1,10 @@
+@import '../../styles/variables/variables.scss';
+
+.column-wrap {
+	display: flex;
+	justify-content: space-between;
+	height: calc(100dvh - 60px);
+	padding: 20px 0;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+}

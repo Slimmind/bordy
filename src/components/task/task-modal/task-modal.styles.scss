@@ -1,0 +1,63 @@
+@import '../../../styles/variables/variables.scss';
+
+.task-modal {
+  .controls.stretch {
+    margin-bottom: 20px;
+
+    .form-group {
+      flex-basis: 33.33%;
+      padding: 0;
+
+      &:first-child {
+        .btn {
+          border-radius: 8px 0 0 8px;
+          border-right-width: 0;
+        }
+      }
+
+      &:last-child {
+        .btn {
+          border-radius: 0 8px 8px 0;
+          border-left-width: 0;
+        }
+      }
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+
+      &.primary {
+        @include invert-button($color-blue-light);
+      }
+      &.secondary {
+        @include invert-button($color-gray);
+      }
+      &.success {
+        @include invert-button($color-green);
+      }
+      &.danger {
+        @include invert-button($color-red-light);
+      }
+    }
+  }
+
+  input[type='radio']:checked + label {
+    color: $color-white;
+
+    &.primary {
+      @include button($color-blue-light);
+    }
+    &.secondary {
+      @include button($color-gray-dark);
+    }
+    &.success {
+      @include button($color-green);
+    }
+    &.danger {
+      @include button($color-red-light);
+    }
+  }
+}

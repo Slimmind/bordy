@@ -1,0 +1,26 @@
+@import '../../styles/variables/variables.scss';
+
+.controls {
+  display: flex;
+  align-items: center;
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: end;
+  }
+
+  &.stretch {
+    justify-content: space-between;
+  }
+
+  a,
+  button {
+    + a,
+    + button {
+      margin-left: 10px;
+    }
+  }
+}

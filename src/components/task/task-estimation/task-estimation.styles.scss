@@ -1,0 +1,58 @@
+@import '../../../styles/variables/variables.scss';
+
+.task-estimation {
+  font-size: 14px;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    button {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      z-index: 1;
+    }
+  }
+
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: $shadow;
+    overflow: hidden;
+  }
+
+  .progress,
+  .overtime {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+  }
+
+  .progress {
+    left: 0;
+    border-radius: 5px 0 0 5px;
+  }
+
+  .overtime {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+    background-color: $color-yellow;
+  }
+
+  .progress-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+    .over {
+      color: $color-yellow;
+    }
+  }
+}
