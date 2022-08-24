@@ -1,0 +1,14 @@
+@import '../../../styles/variables/variables.scss';
+
+.task-header {
+  margin-top: -10px;
+
+  .controls {
+    margin-bottom: 0;
+  }
+
+  .circle-btn {
+    width: 20px;
+    height: 20px;
+  }
+}

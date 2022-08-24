@@ -1,0 +1,54 @@
+@import '../../styles/variables/variables.scss';
+
+.form-group {
+  position: relative;
+  padding-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.form-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: $color-gray-light;
+  border: 0;
+  border-radius: $control-radius;
+  font-size: 16px;
+  font-family: $main-font;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: inset 0 0 1px 1px $color-blue-light;
+  }
+
+  .dark & {
+    background-color: $color-dark;
+    color: inherit;
+  }
+
+  &::placeholder {
+    color: $color-gray-dark;
+  }
+}
+
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+
+  + label {
+    cursor: pointer;
+  }
+}

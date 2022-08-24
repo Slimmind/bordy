@@ -1,0 +1,55 @@
+@import '../../styles/variables/variables.scss';
+
+.column {
+  flex-basis: 100%;
+  padding: 10px;
+  background-color: $color-gray-light;
+  border-radius: $radius;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+
+  @media (min-width: $tab-land) {
+    padding: 10px 20px 20px;
+    flex-basis: calc(50% - 10px);
+  }
+
+  @media (min-width: $desk) {
+    flex-basis: calc(25% - 15px);
+  }
+
+  & + .column {
+    margin-left: 20px;
+  }
+
+  .dark & {
+    background-color: darken($color-dark, 10%);
+    box-shadow: none;
+  }
+
+  .task-list {
+    height: calc(100vh - 188px);
+    max-height: calc(100vh - 188px);
+    padding: 3px;
+    overflow: auto;
+
+    @include media($desk) {
+      padding: 0;
+    }
+  }
+
+  &.backlog {
+    @include column-styles($color-gray-dark);
+  }
+
+  &.todo {
+    @include column-styles($color-red-light);
+  }
+
+  &.inProgress {
+    @include column-styles($color-green);
+  }
+
+  &.done {
+    @include column-styles($color-blue-light);
+  }
+}

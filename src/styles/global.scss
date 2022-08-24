@@ -8,9 +8,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: $main-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -22,5 +20,125 @@ ul {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+
+  &[disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+svg {
+  pointer-events: none;
+}
+
+.btn {
+  position: relative;
+  padding: 8px 20px;
+  background-color: $color-gray-light;
+  border: 2px solid;
+  border-radius: $control-radius;
+  color: $color-white;
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.primary {
+    @include button($color-blue-light);
+  }
+
+  &.secondary {
+    @include button($color-gray);
+  }
+
+  &.success {
+    @include button($color-green);
+  }
+
+  &.danger {
+    @include button($color-red-light);
+  }
+}
+
+.circle-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  // box-shadow: $shadow;
+  transition: box-shadow 0.3s;
+
+  &.primary {
+    background-color: $color-blue-light;
+
+    &:hover {
+      box-shadow: 0 0 5px 0 $color-blue-light;
+    }
+  }
+
+  &.secondary {
+    background-color: $color-gray-dark;
+
+    &:hover {
+      box-shadow: 0 0 5px 0 $color-gray-dark;
+    }
+  }
+
+  &.success {
+    background-color: $color-green;
+
+    &:hover {
+      box-shadow: 0 0 5px 0 $color-green;
+    }
+  }
+
+  &.danger {
+    background-color: $color-red-light;
+
+    &:hover {
+      box-shadow: 0 0 5px 0 $color-red-light;
+    }
+  }
+
+  &.add,
+  &.close {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 10px);
+      width: 20px;
+      height: 2px;
+      background-color: $color-white;
+    }
+  }
+
+  &.add {
+    &:after {
+      top: calc(50% - 10px);
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 20px;
+    }
+  }
+
+  &.close {
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
 }

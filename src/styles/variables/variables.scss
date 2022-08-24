@@ -1,0 +1,99 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+$main-font: 'Nunito', sans-serif;
+
+// COLORS
+$color-gray-light: #efefef;
+$color-gray: #cdcdcd;
+$color-gray-dark: #a9a9a9;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-dark: #36454f;
+$color-red: #aa0000;
+$color-red-light: #dd5555;
+$color-green: #00aa00;
+$color-blue: #0000aa;
+$color-blue-light: #00adf2;
+$color-yellow: #fede00;
+
+$shadow: 0 0 2px 0 $color-gray-dark;
+$radius: 16px;
+$radius-inner: 12px;
+$control-radius: 8px;
+
+$tab: 640px;
+$tab-land: 960px;
+$desk: 1200px;
+
+@mixin media($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin button($color) {
+  background-color: $color;
+  border-color: $color;
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    color: $color;
+  }
+}
+
+@mixin invert-button($color) {
+  background-color: transparent;
+  border-color: $color;
+  color: $color;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color;
+    color: $color-white;
+  }
+}
+
+@mixin column-styles($color) {
+  .column-header {
+    border-color: $color;
+    color: $color;
+  }
+
+  .task {
+    border-color: rgba($color, 0.5);
+
+    &::before {
+      background-color: $color;
+    }
+  }
+  .subtasks {
+    background-color: rgba($color, 0.1);
+  }
+
+  .subtask {
+    .circle-btn {
+      border-color: $color;
+    }
+
+    &.done {
+      .circle-btn {
+        background-color: $color;
+      }
+    }
+  }
+
+  .task-estimation-header path {
+    fill: $color;
+  }
+
+  .progress {
+    background-color: $color;
+  }
+
+  .progress-values {
+    .spent {
+      color: $color;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../styles/variables/variables.scss';
+
+.column-wrap {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}

@@ -1,0 +1,93 @@
+@import '../../../styles/variables/variables.scss';
+.subtasks {
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: $radius;
+  padding: 1px 10px 2px;
+}
+
+.collapse-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    width: 10px;
+    height: 2px;
+    background-color: $color-white;
+    border-radius: 2px;
+    transition: transform 0.3s;
+  }
+
+  &::before {
+    right: 16px;
+    transform: rotate(-45deg);
+
+    .collapsed & {
+      transform: rotate(45deg);
+    }
+  }
+
+  &::after {
+    right: 10px;
+    transform: rotate(45deg);
+
+    .collapsed & {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.subtask-list {
+  max-height: 200px;
+  overflow: auto;
+  transition: max-height 0.3s;
+
+  .collapsed & {
+    max-height: 30px;
+    overflow: hidden;
+  }
+}
+.subtask {
+  margin: 5px 0;
+  padding-right: 20px;
+  transition: opacity 0.3s;
+
+  .circle-btn {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid $color-gray-light;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 5px;
+      width: 4px;
+      height: 8px;
+      border-right: 2px solid $color-white;
+      border-bottom: 2px solid $color-white;
+      opacity: 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.subtask.done {
+  opacity: 0.5;
+
+  .circle-btn::after {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,101 @@
+@import '../../styles/variables/variables.scss';
+
+.main-header {
+  padding: 10px 0;
+  background-color: $color-gray-light;
+  border-bottom: 1px solid $color-gray;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-logo {
+    line-height: 24px;
+  }
+
+  .header-search {
+    width: 50%;
+    max-width: 320px;
+    margin: 0 10px;
+
+    @include media($tab) {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 70%;
+      transform: translateX(-50%);
+    }
+
+    .form-group {
+      padding: 0;
+    }
+
+    .form-field {
+      background-color: $color-white;
+    }
+  }
+
+  nav {
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 5px;
+
+      @include media($tab) {
+        margin-left: 20px;
+      }
+    }
+
+    a,
+    button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+
+      &:hover,
+      &:focus-visible {
+        &::before {
+          opacity: 0.05;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: $color-gray;
+        border-radius: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s;
+        z-index: -1;
+      }
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.main-header.dark {
+  background-color: darken($color-dark, 10%);
+  border-color: $color-gray-dark;
+  color: $color-gray-light;
+
+  .header-search {
+    .form-field {
+      background-color: $color-dark;
+      color: inherit;
+    }
+  }
+}
